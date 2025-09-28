@@ -5,7 +5,6 @@ function Profile() {
   return (
     <div className="container mt-4">
       <h2>Welcome to Profile</h2>
-      {/* <Cards /> */}
     </div>
   );
 }

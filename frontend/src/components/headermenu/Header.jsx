@@ -4,8 +4,6 @@ import { AuthContext } from '../contexts/AuthContext.jsx';
 import { useCart } from '../contexts/CartContext.jsx';
 import { useSavedItems } from '../contexts/SavedItemsContext.jsx';
 
-
-
 function Header({ menu }) {
   const { user, logout, isAuthenticated } = useContext(AuthContext);
   const { cartCount } = useCart();

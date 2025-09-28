@@ -1,8 +1,6 @@
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-// import { AuthContext } from '../../contexts/AuthContext';
 import { AuthContext } from '../contexts/AuthContext.jsx';
-// import Cards from '../cards/Cards';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
@@ -235,8 +233,6 @@ function Home() {
           </div>
         </div>
       </section>
-
-      {/* <Cards /> */}
     </div>
   );
 }

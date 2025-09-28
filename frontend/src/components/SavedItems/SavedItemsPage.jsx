@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import { useSavedItems } from '../../contexts/SavedItemsContext';
 import { useSavedItems } from '../contexts/SavedItemsContext.jsx';
-// import { useCart } from '../../contexts/CartContext';
 import { useCart } from '../contexts/CartContext.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 

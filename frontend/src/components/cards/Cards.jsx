@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-// import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Cards() {
   const [data, setData] = useState([]);
@@ -36,11 +35,8 @@ function Cards() {
           ))}
         </div>
       ) : (
-        // <p>Loading...</p>
+
         <div class="text-center">
-            {/* <div class="spinner-border" role="status">
-                <span class="visually-hidden">Loading...</span>
-            </div> */}
             <div class="spinner-border text-primary" role="status">
                 <span class="visually-hidden">Loading...</span>
             </div>

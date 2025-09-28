@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-// import { useCart } from '../../contexts/CartContext';
 import { useCart } from '../contexts/CartContext.jsx';
-// import { useSavedItems } from '../../contexts/SavedItemsContext';
 import { useSavedItems } from '../contexts/SavedItemsContext.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
