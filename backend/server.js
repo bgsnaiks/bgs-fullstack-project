@@ -153,7 +153,9 @@ const menu = [
   { label: "Profile", path: "/profile" },
   { label: "Cards", path: "/cards" },
   // { label: "Sample", path: "/sample" },
-  { label: "Products", path: "/products" }
+  { label: "Products", path: "/products" },
+  { label: "ContactUs", path: "/contact" },
+  { label: "AboutUs", path: "/about" }
 ];
 
 app.get('/api/menu', (req, res) => {

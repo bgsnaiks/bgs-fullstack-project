@@ -24,6 +24,8 @@ import { CartProvider } from './components/contexts/CartContext.jsx';
 import { SavedItemsProvider } from './components/contexts/SavedItemsContext.jsx';
 import Shipping from './components/Payment/Shipping.jsx';
 import Payment from './components/Payment/Payment.jsx';
+import ContactUs from './components/pages/ContactUs.jsx';
+import AboutUs from './components/pages/AboutUs.jsx';
 
 function App() {
   const [menu, setMenu] = useState([]);
@@ -92,6 +94,8 @@ function App() {
             
             <Route path="/shipping" element={<Shipping />} />
             <Route path="/payment" element={<Payment />} />
+            <Route path="/contact" element={<ContactUs />} />
+            <Route path="/about" element={<AboutUs />} />
 
             {/* Redirect unknown routes to home */}
             <Route path="*" element={<Navigate to="/" />} />
