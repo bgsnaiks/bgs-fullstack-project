@@ -1,53 +1,26 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
 
-// Create the SavedItems Context
 export const SavedItemsContext = createContext();
 
-// SavedItems Provider component to wrap the app
 export const SavedItemsProvider = ({ children }) => {
-  const [savedItems, setSavedItems] = useState([]);
-  const [savedCount, setSavedCount] = useState(0);
+  const [savedItems, setSavedItems] = useState(() => {
+    const saved = localStorage.getItem('savedItems');
+    return saved ? JSON.parse(saved) : [];
+  });
+  const [savedCount, setSavedCount] = useState(savedItems.length);
 
-  // Load saved items from localStorage on component mount
   useEffect(() => {
-    try {
-      const savedItemsFromStorage = localStorage.getItem('savedItems');
-      if (savedItemsFromStorage) {
-        const parsedSavedItems = JSON.parse(savedItemsFromStorage);
-        setSavedItems(parsedSavedItems);
-        updateSavedCount(parsedSavedItems);
-      }
-    } catch (error) {
-      console.error('Error loading saved items from localStorage:', error);
-    }
-  }, []);
-
-  // Save items to localStorage whenever saved items change
-  useEffect(() => {
-    try {
-      localStorage.setItem('savedItems', JSON.stringify(savedItems));
-      updateSavedCount(savedItems);
-    } catch (error) {
-      console.error('Error saving items to localStorage:', error);
-    }
+    localStorage.setItem('savedItems', JSON.stringify(savedItems));
+    setSavedCount(savedItems.length);
   }, [savedItems]);
-
-  // Update saved count
-  const updateSavedCount = (items) => {
-    setSavedCount(items.length);
-  };
 
   // Add item to saved items
   const addToSaved = (product) => {
     setSavedItems(prevItems => {
       const existingItem = prevItems.find(item => item.id === product.id);
-      
       if (!existingItem) {
-        // If item doesn't exist, add to saved items
         return [...prevItems, { ...product, savedAt: new Date().toISOString() }];
       }
-      
-      // If item already exists, don't add duplicate
       return prevItems;
     });
   };
@@ -111,7 +84,6 @@ export const SavedItemsProvider = ({ children }) => {
   );
 };
 
-// Custom hook to use saved items context
 export const useSavedItems = () => {
   const context = useContext(SavedItemsContext);
   if (!context) {

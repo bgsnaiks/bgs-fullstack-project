@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
+import { useCart } from '../contexts/CartContext';
+import { useNavigate } from 'react-router-dom';
 import upiLogo from '../../upi.png';
 import './upi.css';
+
 function Payment() {
   const [method, setMethod] = useState('');
   const [details, setDetails] = useState({});
   const [loading, setLoading] = useState(false);
+  const { clearCart } = useCart();
+  const navigate = useNavigate();
 
   const handleMethodChange = e => {
     setMethod(e.target.value);
@@ -18,10 +23,14 @@ function Payment() {
   const handleSubmit = async e => {
     e.preventDefault();
     setLoading(true);
-    // TODO: Integrate with payment gateway API
+    // Simulate payment processing
     setTimeout(() => {
       alert('Payment processed!');
+      clearCart(); // Clear the cart after payment
+      setMethod('');
+      setDetails({});
       setLoading(false);
+      navigate('/cart'); // Redirect to cart page
     }, 1500);
   };
 
@@ -43,7 +52,6 @@ function Payment() {
             <label>
               <input type="radio" name="method" value="upi" checked={method === 'upi'} onChange={handleMethodChange} />
               <img className='upiLogo' src={upiLogo} alt="UPI" style={{width:32}} />
-              {/* <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Unified_Payments_Interface_logo.svg" alt="UPI" style={{width:32}} /> UPI */}
             </label>
             <label>
               <input type="radio" name="method" value="netbanking" checked={method === 'netbanking'} onChange={handleMethodChange} />
@@ -103,3 +111,4 @@ function Payment() {
 }
 
 export default Payment;
+
