@@ -152,7 +152,7 @@ const menu = [
   { label: "Cart", path: "/cart" },
   { label: "Profile", path: "/profile" },
   { label: "Cards", path: "/cards" },
-  { label: "Sample", path: "/sample" },
+  // { label: "Sample", path: "/sample" },
   { label: "Products", path: "/products" }
 ];
 

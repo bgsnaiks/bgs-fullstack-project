@@ -11,7 +11,7 @@ import Profile from './components/Profile/Profile.jsx';
 import UserProfile from './components/Profile/UserProfile.jsx';
 import Cart from './components/Cart/Cart.jsx';
 import CartPage from './components/Cart/CartPage.jsx';
-import Sample from './components/Sample/Sample.jsx';
+// import Sample from './components/Sample/Sample.jsx';
 import ProductManager from './components/products/ProductManager.jsx';
 import ProductListing from './components/products/ProductListing.jsx';
 import ProductDetail from './components/products/ProductDetail.jsx';
@@ -78,11 +78,11 @@ function App() {
                 <CartPage />
               </ProtectedRoute>
             } />
-            <Route path="/sample" element={
+            {/* <Route path="/sample" element={
               <ProtectedRoute>
                 <Sample />
               </ProtectedRoute>
-            } />
+            } /> */}
             
             <Route path="/saved-items" element={
               <ProtectedRoute>
