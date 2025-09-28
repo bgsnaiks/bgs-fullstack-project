@@ -16,7 +16,8 @@ function Header({ menu }) {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light px-4">
+    <header className="sticky-header">
+    <nav className="navbar navbar-expand-lg navbar-light  px-4">
       <Link className="navbar-brand fw-bold" to="/">
         {/* <i className="bi bi-shop me-2"></i> */}
         <img 
@@ -120,6 +121,7 @@ function Header({ menu }) {
         </ul>
       </div>
     </nav>
+    </header>
   );
 }
 
