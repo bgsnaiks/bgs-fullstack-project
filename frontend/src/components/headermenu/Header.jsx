@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthContext.jsx';
 import { useCart } from '../contexts/CartContext.jsx';
 import { useSavedItems } from '../contexts/SavedItemsContext.jsx';
-
+import logo from '../../logo_new.png';
+import './Header.css';
+console.log('logo.......', logo);
 function Header({ menu }) {
   const { user, logout, isAuthenticated } = useContext(AuthContext);
   const { cartCount } = useCart();
@@ -16,7 +18,12 @@ function Header({ menu }) {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light px-4">
       <Link className="navbar-brand fw-bold" to="/">
-        <i className="bi bi-shop me-2"></i>
+        {/* <i className="bi bi-shop me-2"></i> */}
+        <img 
+                  src={logo} 
+                  alt="logo" 
+                  className="store_logo-img"
+                />
         BGS NAIK STORE
       </Link>
       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">

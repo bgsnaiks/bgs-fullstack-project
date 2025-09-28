@@ -18,6 +18,7 @@ let localProducts = [];
 let productIdCounter = 1000;
 let users = [];
 let userIdCounter = 1;
+let shippingData = [];
 
 // GET all products
 app.get('/api/products', async (req, res) => {
@@ -279,6 +280,17 @@ app.get('/api/auth/users', (req, res) => {
     users: usersWithoutPasswords,
     count: users.length
   });
+});
+
+// POST: Save shipping information
+app.post('/api/shipping', (req, res) => {
+  const data = req.body;
+  if (!data.name || !data.address || !data.city || !data.state || !data.zip || !data.phone) {
+    return res.status(400).json({ error: 'All fields are required' });
+  }
+  shippingData.push({ ...data, createdAt: new Date().toISOString() });
+  console.log('Shipping data received:', data);
+  res.status(201).json({ success: true, message: 'Shipping info saved', data });
 });
 
 // Start server

@@ -253,7 +253,8 @@ function CartPage() {
               <div className="d-grid gap-2">
                 <button className="btn btn-primary btn-lg">
                   <i className="bi bi-credit-card me-2"></i>
-                  Proceed to Checkout
+                  {/* Proceed to Checkout */}
+                  <Link to="/shipping" className="btn btn-primary">Proceed to Checkout</Link>
                 </button>
                 <Link to="/saved-items" className="btn btn-outline-secondary">
                   <i className="bi bi-heart me-2"></i>

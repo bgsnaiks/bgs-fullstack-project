@@ -22,6 +22,8 @@ import ProtectedRoute from './components/Auth/ProtectedRoute.jsx';
 import { AuthProvider } from './components/contexts/AuthContext.jsx';
 import { CartProvider } from './components/contexts/CartContext.jsx';
 import { SavedItemsProvider } from './components/contexts/SavedItemsContext.jsx';
+import Shipping from './components/Payment/Shipping.jsx';
+import Payment from './components/Payment/Payment.jsx';
 
 function App() {
   const [menu, setMenu] = useState([]);
@@ -88,6 +90,9 @@ function App() {
               </ProtectedRoute>
             } />
             
+            <Route path="/shipping" element={<Shipping />} />
+            <Route path="/payment" element={<Payment />} />
+
             {/* Redirect unknown routes to home */}
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
