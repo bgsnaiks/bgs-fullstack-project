@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useCart } from '../contexts/CartContext.jsx';
 import { useSavedItems } from '../contexts/SavedItemsContext.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './ProductDetail.css';
 
 function ProductDetail() {
   const { id } = useParams();
@@ -143,7 +144,7 @@ function ProductDetail() {
                 <img
                   src={images[activeImageIndex]}
                   alt={product.title}
-                  className="img-fluid rounded"
+                  className="img-fluid rounded zoom-image"
                   style={{
                     width: '100%',
                     height: '400px',
